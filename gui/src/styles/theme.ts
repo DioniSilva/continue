@@ -9,7 +9,7 @@ export const THEME_COLORS = {
       "--vscode-editor-background",
       "--vscode-panel-background",
     ],
-    default: "#1e1e1e", // dark gray
+    default: "#0f1014", // coal
   },
   foreground: {
     vars: [
@@ -17,80 +17,80 @@ export const THEME_COLORS = {
       "--vscode-editor-foreground",
       "--vscode-panel-foreground",
     ],
-    default: "#e6e6e6", // light gray
+    default: "#f4f5f7", // off white
   },
   "editor-background": {
     vars: ["--vscode-editor-background"],
-    default: "#1e1e1e", // dark gray
+    default: "#101217",
   },
   "editor-foreground": {
     vars: ["--vscode-editor-foreground"],
-    default: "#e6e6e6", // light gray
+    default: "#f4f5f7",
   },
   "primary-background": {
     vars: ["--vscode-button-background"],
-    default: "#2c5aa0", // medium blue
+    default: "#ff4f00", // CWI orange
   },
   "primary-foreground": {
     vars: ["--vscode-button-foreground"],
-    default: "#ffffff", // white
+    default: "#ffffff",
   },
   "primary-hover": {
     vars: ["--vscode-button-hoverBackground"],
-    default: "#3a6db3", // lighter blue
+    default: "#ff7a33",
   },
   "secondary-background": {
     vars: ["--vscode-button-secondaryBackground"],
-    default: "#303030", // medium dark gray
+    default: "#1b1c22",
   },
   "secondary-foreground": {
     vars: ["--vscode-button-secondaryForeground"],
-    default: "#e6e6e6", // light gray
+    default: "#f0f1f5",
   },
   "secondary-hover": {
     vars: ["--vscode-button-secondaryHoverBackground"],
-    default: "#3a3a3a", // medium gray
+    default: "#23242b",
   },
   border: {
     vars: ["--vscode-sideBar-border", "--vscode-panel-border"],
-    default: "#2a2a2a", // dark gray border
+    default: "#1f2027",
   },
   "border-focus": {
     vars: ["--vscode-focusBorder"],
-    default: "#3a6db3", // lighter blue
+    default: "#ff8e4c",
   },
   // Command styles are used for tip-tap editor
   "command-background": {
     vars: ["--vscode-commandCenter-background"],
-    default: "#252525", // dark gray
+    default: "#181a20",
   },
   "command-foreground": {
     vars: ["--vscode-commandCenter-foreground"],
-    default: "#e6e6e6", // light gray
+    default: "#f5f5f5",
   },
   "command-border": {
     vars: ["--vscode-commandCenter-inactiveBorder"],
-    default: "#555555", // medium gray
+    default: "#2c2e36",
   },
   "command-border-focus": {
     vars: ["--vscode-commandCenter-activeBorder"],
-    default: "#4d8bf0", // bright blue
+    default: "#ff8e4c",
   },
   description: {
     vars: ["--vscode-descriptionForeground"],
-    default: "#b3b3b3", // medium light gray
+    default: "#c7c9d1",
   },
   "description-muted": {
     vars: ["--vscode-list-deemphasizedForeground"],
-    default: "#8c8c8c", // medium gray
+    default: "#8e919e",
   },
   "input-background": {
     vars: ["--vscode-input-background"],
-    default: "#2d2d2d", // dark gray
+    default: "#1c1f27",
   },
   "input-foreground": {
     vars: ["--vscode-input-foreground"],
-    default: "#e6e6e6", // light gray
+    default: "#f3f5f8",
   },
   "input-border": {
     vars: [
@@ -98,30 +98,30 @@ export const THEME_COLORS = {
       "--vscode-commandCenter-inactiveBorder",
       "vscode-border",
     ],
-    default: "#555555", // medium gray
+    default: "#2d303b",
   },
   "input-placeholder": {
     vars: ["--vscode-input-placeholderForeground"],
-    default: "#9e9e9e", // medium light gray
+    default: "#8f93a3",
   },
   "table-oddRow": {
     vars: ["--vscode-tree-tableOddRowsBackground"],
-    default: "#2d2d2d", // dark gray
+    default: "#1a1c22",
   },
   "badge-background": {
     vars: ["--vscode-badge-background"],
-    default: "#4d4d4d", // medium dark gray
+    default: "#ff4f00",
   },
   "badge-foreground": {
     vars: ["--vscode-badge-foreground"],
-    default: "#ffffff", // white
+    default: "#ffffff",
   },
   info: {
     vars: [
       "--vscode-charts-blue",
       "--vscode-notebookStatusRunningIcon-foreground",
     ],
-    default: "#2196f3", // blue
+    default: "#00b3ff",
   },
   success: {
     vars: [
@@ -130,55 +130,55 @@ export const THEME_COLORS = {
       "--vscode-gitDecoration-addedResourceForeground",
       "--vscode-charts-green",
     ],
-    default: "#4caf50", // green
+    default: "#4ad08d",
   },
   warning: {
     vars: [
       "--vscode-editorWarning-foreground",
       "--vscode-list-warningForeground",
     ],
-    default: "#ffb74d", // amber/yellow
+    default: "#ffcf5c",
   },
   error: {
     vars: ["--vscode-editorError-foreground", "--vscode-list-errorForeground"],
-    default: "#f44336", // red
+    default: "#ff6b6b",
   },
   link: {
     vars: ["--vscode-textLink-foreground"],
-    default: "#5c9ce6", // medium blue
+    default: "#ff9764",
   },
   terminal: {
     vars: ["--vscode-terminal-ansiGreen"],
-    default: "#0dbc79", // green
+    default: "#41d0a2",
   },
   textCodeBlockBackground: {
     vars: ["--vscode-textCodeBlock-background"],
-    default: "#1e1e1e", // same as editor-background
+    default: "#14151b",
   },
   accent: {
     vars: ["--vscode-tab-activeBorderTop", "--vscode-focusBorder"],
-    default: "#4d8bf0", // bright blue
+    default: "#ff4f00",
   },
   "find-match": {
     vars: ["--vscode-editor-findMatchBackground"], // Can't get "var(--vscode-editor-findMatchBackground, rgba(237, 18, 146, 0.5))" to work
-    default: "#264f7840", // translucent blue
+    default: "#ffb17a33",
   },
   "find-match-selected": {
     vars: ["--vscode-editor-findMatchHighlightBackground"],
-    default: "#ffb74d40", // translucent amber
+    default: "#ff7a3333",
   },
   "list-hover": {
     // --vscode-tab-hoverBackground
     vars: ["--vscode-list-hoverBackground"],
-    default: "#383838", // medium dark gray
+    default: "#1f2128",
   },
   "list-active": {
     vars: ["--vscode-list-activeSelectionBackground"],
-    default: "#2c5aa050", // translucent medium blue
+    default: "rgba(255, 79, 0, 0.18)",
   },
   "list-active-foreground": {
     vars: ["--vscode-list-activeSelectionForeground"],
-    default: "#ffffff", // white
+    default: "#ffffff",
   },
 };
 

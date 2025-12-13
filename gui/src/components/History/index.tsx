@@ -12,6 +12,11 @@ import React, {
 import Shortcut from "../gui/Shortcut";
 
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import {
+  Cog6ToothIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+} from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 import { IdeMessengerContext } from "../../context/IdeMessenger";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -20,7 +25,10 @@ import {
   setAllSessionMetadata,
 } from "../../redux/slices/sessionSlice";
 import { setDialogMessage, setShowDialog } from "../../redux/slices/uiSlice";
-import { refreshSessionMetadata } from "../../redux/thunks/session";
+import {
+  refreshSessionMetadata,
+  saveCurrentSession,
+} from "../../redux/thunks/session";
 import { getFontSize, getPlatform } from "../../util";
 import { ROUTES } from "../../util/navigation";
 import ConfirmationDialog from "../dialogs/ConfirmationDialog";
@@ -33,6 +41,7 @@ export function History() {
   const navigate = useNavigate();
   const searchInputRef = React.useRef<HTMLInputElement>(null);
   const ideMessenger = useContext(IdeMessengerContext);
+  const mediaUrl = (window as Window & { vscMediaUrl?: string }).vscMediaUrl;
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -45,6 +54,9 @@ export function History() {
 
   const allSessionMetadata = useAppSelector(
     (state) => state.session.allSessionMetadata,
+  );
+  const hasHistory = useAppSelector(
+    (state) => state.session.history.length > 0,
   );
   const isSessionMetadataLoading = useAppSelector(
     (state) => state.session.isSessionMetadataLoading,
@@ -147,23 +159,80 @@ export function History() {
     dispatch(setShowDialog(true));
   };
 
+  const handleCreateWorkspace = async () => {
+    if (hasHistory) {
+      await dispatch(
+        saveCurrentSession({ openNewSession: true, generateTitle: true }),
+      );
+    } else {
+      dispatch(newSession());
+    }
+    navigate(ROUTES.HOME);
+  };
+
+  const focusSearch = () => {
+    searchInputRef.current?.focus();
+  };
+
   return (
     <div
       style={{ fontSize: getFontSize() }}
-      className="flex flex-1 flex-col overflow-auto overflow-x-hidden px-1"
+      className="flex flex-1 flex-col overflow-auto overflow-x-hidden bg-[#0f1014] px-4 pb-6 text-[#f3f5f7]"
     >
-      <div className="relative my-2 mt-4 flex justify-center space-x-2">
+      <div className="flex flex-col gap-4 pt-6">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            {mediaUrl ? (
+              <img
+                src={`${mediaUrl}/icon-banner.png`}
+                alt="CWI Rocket"
+                className="h-6"
+              />
+            ) : (
+              <span className="text-lg font-semibold tracking-wide">
+                CWI Rocket
+              </span>
+            )}
+          </div>
+          <button
+            onClick={handleCreateWorkspace}
+            className="flex items-center gap-2 rounded-full bg-[#ff4f00] px-4 py-1.5 text-xs font-semibold text-white shadow-[0_4px_20px_rgba(255,79,0,0.35)] transition hover:brightness-110"
+          >
+            <PlusIcon className="h-4 w-4" />
+            Novo workspace
+          </button>
+        </div>
+
+        <div className="text-description flex items-center gap-2 text-xs text-[#c7cad8]">
+          <button
+            className="border-border flex h-7 w-7 items-center justify-center rounded-full border border-transparent bg-[#1c1f27] transition hover:border-[#ff4f00]"
+            onClick={focusSearch}
+            title="Buscar workspaces"
+          >
+            <MagnifyingGlassIcon className="h-4 w-4" />
+          </button>
+          <button
+            className="border-border flex h-7 w-7 items-center justify-center rounded-full border border-transparent bg-[#1c1f27] transition hover:border-[#ff4f00]"
+            onClick={() => navigate(ROUTES.CONFIG)}
+            title="Configurações"
+          >
+            <Cog6ToothIcon className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+
+      <div className="relative my-4 flex justify-center space-x-2">
         <input
-          className="bg-vsc-input-background text-vsc-foreground flex-1 rounded-md border border-none py-1 pl-2 pr-8 text-sm outline-none focus:outline-none"
+          className="flex-1 rounded-full border border-transparent bg-[#1a1d24] py-2 pl-3 pr-9 text-sm text-[#f3f5f7] placeholder:text-[#777b8f] focus:border-[#ff4f00] focus:outline-none"
           ref={searchInputRef}
-          placeholder="Search past sessions"
+          placeholder="Buscar workspaces"
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         {searchTerm && (
           <XMarkIcon
-            className="text-vsc-foreground hover:bg-vsc-background duration-50 absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 transform cursor-pointer rounded-full p-0.5 transition-colors"
+            className="duration-50 absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 transform cursor-pointer rounded-full p-0.5 text-[#c7cad8] transition-colors hover:bg-[#14161c]"
             onClick={() => {
               setSearchTerm("");
               if (searchInputRef.current) {
@@ -176,14 +245,16 @@ export function History() {
 
       <div className="thin-scrollbar flex w-full flex-1 flex-col overflow-y-auto">
         {filteredAndSortedSessions.length === 0 && (
-          <div className="m-3 text-center">
+          <div className="m-3 text-center text-sm text-[#b4b7c3]">
             {isSessionMetadataLoading ? (
-              "Loading Sessions..."
+              "Carregando workspaces..."
             ) : (
               <>
-                No past sessions found. To start a new session, either click the
-                "+" button or use the keyboard shortcut:{" "}
-                <Shortcut>meta L</Shortcut>
+                Nenhum workspace encontrado. Clique em{" "}
+                <span className="font-semibold text-white">
+                  “Novo workspace”
+                </span>{" "}
+                ou use o atalho <Shortcut>meta L</Shortcut> para começar.
               </>
             )}
           </div>

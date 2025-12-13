@@ -21,8 +21,16 @@ export function getNonce() {
   return text;
 }
 
+const EXTENSION_IDS = ["CWI.cwi-rocket", "Continue.continue"];
+
 export function getExtensionUri(): vscode.Uri {
-  return vscode.extensions.getExtension("Continue.continue")!.extensionUri;
+  for (const id of EXTENSION_IDS) {
+    const ext = vscode.extensions.getExtension(id);
+    if (ext) {
+      return ext.extensionUri;
+    }
+  }
+  throw new Error("CWI Rocket extension não encontrada no VSCode.");
 }
 
 export function getViewColumnOfFile(
