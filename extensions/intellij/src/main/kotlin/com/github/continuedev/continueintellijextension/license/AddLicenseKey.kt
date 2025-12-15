@@ -1,5 +1,6 @@
 package com.github.continuedev.continueintellijextension.license
 
+import com.github.continuedev.continueintellijextension.Branding
 import com.github.continuedev.continueintellijextension.services.ContinuePluginService
 import com.github.continuedev.continueintellijextension.utils.castNestedOrNull
 import com.intellij.notification.NotificationAction
@@ -59,5 +60,5 @@ class AddLicenseKey : AnAction() {
         )
 
     private fun getContinueNotifications() =
-        NotificationGroupManager.getInstance().getNotificationGroup("Continue")
+        NotificationGroupManager.getInstance().getNotificationGroup(Branding.NOTIFICATION_GROUP_ID)
 }

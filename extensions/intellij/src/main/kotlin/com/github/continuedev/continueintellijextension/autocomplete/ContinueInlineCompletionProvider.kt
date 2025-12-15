@@ -1,5 +1,6 @@
 package com.github.continuedev.continueintellijextension.autocomplete
 
+import com.github.continuedev.continueintellijextension.Branding
 import com.github.continuedev.continueintellijextension.FimResult
 import com.github.continuedev.continueintellijextension.Position
 import com.github.continuedev.continueintellijextension.nextEdit.NextEditJumpManager
@@ -21,7 +22,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 
 class ContinueInlineCompletionProvider : InlineCompletionProvider {
-    override val id get() = InlineCompletionProviderID("Continue")
+    override val id get() = InlineCompletionProviderID(Branding.INLINE_COMPLETION_PROVIDER_ID)
     override val insertHandler: InlineCompletionInsertHandler = NotifyingHandler()
     private var lastUuid: String? = null
     private var lastProject: Project? = null

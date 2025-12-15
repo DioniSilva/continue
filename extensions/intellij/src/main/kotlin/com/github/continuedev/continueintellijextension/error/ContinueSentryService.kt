@@ -1,5 +1,6 @@
 package com.github.continuedev.continueintellijextension.error
 
+import com.github.continuedev.continueintellijextension.constants.ContinueConstants
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.application.ApplicationInfo
 import com.intellij.openapi.components.Service
@@ -65,7 +66,7 @@ class ContinueSentryService(
     }
 
     private companion object {
-        private const val PLUGIN_ID = "com.github.continuedev.continueintellijextension"
+        private const val PLUGIN_ID = ContinueConstants.PLUGIN_ID
         private const val SENTRY_DSN =
             "https://fe99934dcdc537d84209893a3f96a196@o4505462064283648.ingest.us.sentry.io/4508184596054016"
 

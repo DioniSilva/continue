@@ -1,5 +1,6 @@
 package com.github.continuedev.continueintellijextension.actions
 
+import com.github.continuedev.continueintellijextension.Branding
 import com.github.continuedev.continueintellijextension.HighlightedCodePayload
 import com.github.continuedev.continueintellijextension.RangeInFileWithContents
 import com.github.continuedev.continueintellijextension.browser.ContinueBrowserService
@@ -94,7 +95,7 @@ class OpenConfigAction : ContinueToolbarAction() {
 
 class ReloadBrowserAction: ContinueToolbarAction() {
     override fun toolbarActionPerformed(project: Project) {
-        val toolWindow = ToolWindowManager.getInstance(project).getToolWindow("Continue")
+        val toolWindow = ToolWindowManager.getInstance(project).getToolWindow(Branding.TOOL_WINDOW_ID)
             ?: return
         val browserService = project.service<ContinueBrowserService>()
 
@@ -150,4 +151,3 @@ object FocusActionUtil {
         browser.sendToWebview("highlightedCode", code)
     }
 }
-

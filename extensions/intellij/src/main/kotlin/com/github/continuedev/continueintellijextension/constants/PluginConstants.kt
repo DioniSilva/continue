@@ -5,7 +5,7 @@ package com.github.continuedev.continueintellijextension.constants
  */
 object ContinueConstants {
     /**
-     * The unique identifier for the Continue plugin.
+     * The unique identifier for the CWI Rocket plugin.
      */
-    const val PLUGIN_ID = "com.github.continuedev.continueintellijextension"
+    const val PLUGIN_ID = "br.com.cwi.rocket.intellij"
 }

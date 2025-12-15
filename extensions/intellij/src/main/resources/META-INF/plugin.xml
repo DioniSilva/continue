@@ -1,8 +1,8 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.continuedev.continueintellijextension</id>
-    <name>Continue</name>
-    <vendor url="https://www.continue.dev/">continue-dev</vendor>
+    <id>br.com.cwi.rocket.intellij</id>
+    <name>CWI Rocket</name>
+    <vendor url="https://www.cwi.com.br/">CWI</vendor>
     <change-notes>
         <![CDATA[View the latest release notes on <a href="https://github.com/continuedev/continue/releases">GitHub</a>]]></change-notes>
 
@@ -15,7 +15,7 @@
     </depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Continue" anchor="right" icon="com.github.continuedev.continueintellijextension.Icons.Continue"
+        <toolWindow id="CWI Rocket" anchor="right" icon="com.github.continuedev.continueintellijextension.Icons.Continue"
                     factoryClass="com.github.continuedev.continueintellijextension.toolWindow.ContinuePluginToolWindowFactory"/>
         <projectService id="ContinuePluginService"
                         serviceImplementation="com.github.continuedev.continueintellijextension.services.ContinuePluginService"/>
@@ -35,9 +35,9 @@
         <projectService
                 serviceImplementation="com.github.continuedev.continueintellijextension.nextEdit.NextEditJumpManager"/>
 
-        <inline.completion.provider id="Continue" implementation="com.github.continuedev.continueintellijextension.autocomplete.ContinueInlineCompletionProvider"/>
+        <inline.completion.provider id="CWI Rocket" implementation="com.github.continuedev.continueintellijextension.autocomplete.ContinueInlineCompletionProvider"/>
         
-        <notificationGroup id="Continue"
+        <notificationGroup id="CWI Rocket"
                            displayType="BALLOON"/>
         <actionPromoter order="last"
                         implementation="com.github.continuedev.continueintellijextension.actions.ContinueActionPromote"/>
@@ -48,7 +48,7 @@
                 parentId="tools"
                 instance="com.github.continuedev.continueintellijextension.services.ContinueExtensionConfigurable"
                 id="com.github.continuedev.continueintellijextension.services.ContinueExtensionConfigurable"
-                displayName="Continue"/>
+                displayName="CWI Rocket"/>
         <applicationService
                 serviceImplementation="com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings"/>
     </extensions>
@@ -62,7 +62,7 @@
                                first-keystroke="ctrl I"/>
             <keyboard-shortcut keymap="Mac OS X"
                                first-keystroke="meta I"/>
-            <override-text place="GoToAction" text="Continue: Edit Code"/>
+            <override-text place="GoToAction" text="CWI Rocket: Edit Code"/>
         </action>
 
         <action id="continue.acceptDiff"
@@ -72,14 +72,14 @@
                                first-keystroke="shift ctrl ENTER"/>
             <keyboard-shortcut keymap="Mac OS X"
                                first-keystroke="shift meta ENTER"/>
-            <override-text place="GoToAction" text="Continue: Accept Diff"/>
+            <override-text place="GoToAction" text="CWI Rocket: Accept Diff"/>
         </action>
 
         <action id="continue.restartProcess"
                 class="com.github.continuedev.continueintellijextension.actions.RestartContinueProcess"
                 text="Restart Process"
                 description="Restart Process">
-            <override-text place="GoToAction" text="Continue: Restart Process"/>
+            <override-text place="GoToAction" text="CWI Rocket: Restart Process"/>
         </action>
 
         <action id="continue.rejectDiff"
@@ -89,7 +89,7 @@
                                first-keystroke="shift ctrl BACK_SPACE"/>
             <keyboard-shortcut keymap="Mac OS X"
                                first-keystroke="shift meta BACK_SPACE"/>
-            <override-text place="GoToAction" text="Continue: Reject Diff"/>
+            <override-text place="GoToAction" text="CWI Rocket: Reject Diff"/>
         </action>
 
         <action id="continue.acceptVerticalDiffBlock"
@@ -99,7 +99,7 @@
                                first-keystroke="alt shift Y"/>
             <keyboard-shortcut keymap="Mac OS X"
                                first-keystroke="alt shift Y"/>
-            <override-text place="GoToAction" text="Continue: Accept Vertical Diff Block"/>
+            <override-text place="GoToAction" text="CWI Rocket: Accept Vertical Diff Block"/>
         </action>
 
         <action id="continue.rejectVerticalDiffBlock"
@@ -109,25 +109,25 @@
                                first-keystroke="alt shift N"/>
             <keyboard-shortcut keymap="Mac OS X"
                                first-keystroke="alt shift N"/>
-            <override-text place="GoToAction" text="Continue: Reject Vertical Diff Block"/>
+            <override-text place="GoToAction" text="CWI Rocket: Reject Vertical Diff Block"/>
         </action>
 
         <action id="continue.addLicenseKey"
                 class="com.github.continuedev.continueintellijextension.license.AddLicenseKey"
                 text="Enter Enterprise License Key"
                 description="Enter Enterprise License Key">
-            <override-text place="GoToAction" text="Continue: Enter Enterprise License Key"/>
+            <override-text place="GoToAction" text="CWI Rocket: Enter Enterprise License Key"/>
         </action>
 
         <action id="continue.focusContinueInputWithoutClear"
                 class="com.github.continuedev.continueintellijextension.actions.FocusContinueInputWithoutClearAction"
                 text="Add selected code to context"
-                description="Focus Continue Input With Edit">
+                description="Focus CWI Rocket Input With Edit">
             <keyboard-shortcut keymap="$default"
                                first-keystroke="ctrl shift J"/>
             <keyboard-shortcut keymap="Mac OS X"
                                first-keystroke="meta shift J"/>
-            <override-text place="GoToAction" text="Continue: Add Highlighted Code to Context"/>
+            <override-text place="GoToAction" text="CWI Rocket: Add Highlighted Code to Context"/>
         </action>
 
         <action id="continue.newContinueSession"
@@ -158,17 +158,17 @@
         <action id="continue.reloadPage"
                 class="com.github.continuedev.continueintellijextension.actions.ReloadBrowserAction"
                 icon="AllIcons.Actions.Refresh"
-                text="Reload Continue Browser"
-                description="Reload Continue Browser">
-            <override-text place="GoToAction" text="Reload Continue Browser"/>
+                text="Reload CWI Rocket Browser"
+                description="Reload CWI Rocket Browser">
+            <override-text place="GoToAction" text="Reload CWI Rocket Browser"/>
         </action>
 
         <action id="continue.openLogs"
                 class="com.github.continuedev.continueintellijextension.actions.OpenLogsAction"
                 icon="AllIcons.General.ShowInfos"
                 text="Open Logs"
-                description="Open Continue Logs">
-            <override-text place="GoToAction" text="Open Continue Logs"/>
+                description="Open CWI Rocket Logs">
+            <override-text place="GoToAction" text="Open CWI Rocket Logs"/>
         </action>
 
         <group id="ContinueSidebarActionsGroup">
@@ -181,15 +181,15 @@
         <action id="continue.focusContinueInput"
                 class="com.github.continuedev.continueintellijextension.actions.FocusContinueInputAction"
                 text="Add selected code to context"
-                description="Focus Continue Input">
+                description="Focus CWI Rocket Input">
             <keyboard-shortcut keymap="$default"
                                first-keystroke="ctrl J"/>
             <keyboard-shortcut keymap="Mac OS X"
                                first-keystroke="meta J"/>
             <add-to-group group-id="EditorPopupMenu"/>
-            <override-text place="GoToAction" text="Continue: Add Highlighted Code to Context and Clear Chat"/>
+            <override-text place="GoToAction" text="CWI Rocket: Add Highlighted Code to Context and Clear Chat"/>
         </action>
-        <group id="ContinueProjectViewPopUpMenuGroup" popup="true" text="Continue" icon="/icons/continue.svg">
+        <group id="ContinueProjectViewPopUpMenuGroup" popup="true" text="CWI Rocket" icon="/icons/continue.svg">
             <action id="com.github.continuedev.continueintellijextension.actions.AddToChatAction"
                     class="com.github.continuedev.continueintellijextension.actions.AddToChatAction"
                     text="Add to Chat">

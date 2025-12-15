@@ -1,6 +1,7 @@
 package com.github.continuedev.continueintellijextension.`continue`
 
 import com.github.continuedev.continueintellijextension.*
+import com.github.continuedev.continueintellijextension.Branding
 import com.github.continuedev.continueintellijextension.activities.ContinuePluginDisposable
 import com.github.continuedev.continueintellijextension.activities.showTutorial
 import com.github.continuedev.continueintellijextension.auth.ContinueAuthService
@@ -343,7 +344,7 @@ class IdeProtocolClient(
                     "closeSidebar" -> {
                         ApplicationManager.getApplication().invokeLater {
                             val toolWindowManager = ToolWindowManager.getInstance(project)
-                            val toolWindow = toolWindowManager.getToolWindow("Continue")
+                            val toolWindow = toolWindowManager.getToolWindow(Branding.TOOL_WINDOW_ID)
                             toolWindow?.hide()
                         }
                     }

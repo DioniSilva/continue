@@ -1,6 +1,7 @@
 package com.github.continuedev.continueintellijextension.`continue`
 
 import com.github.continuedev.continueintellijextension.*
+import com.github.continuedev.continueintellijextension.Branding
 import com.github.continuedev.continueintellijextension.constants.ContinueConstants
 import com.github.continuedev.continueintellijextension.constants.getContinueGlobalPath
 import com.github.continuedev.continueintellijextension.`continue`.file.FileUtils
@@ -617,7 +618,7 @@ class IntelliJIDE(
 
             val deferred = CompletableDeferred<String?>()
 
-            val notification = NotificationGroupManager.getInstance().getNotificationGroup("Continue")
+            val notification = NotificationGroupManager.getInstance().getNotificationGroup(Branding.NOTIFICATION_GROUP_ID)
                 .createNotification(message, notificationType).setIcon(Icons.Continue)
 
             val buttonTexts = otherParams.filterIsInstance<String>().toTypedArray()
